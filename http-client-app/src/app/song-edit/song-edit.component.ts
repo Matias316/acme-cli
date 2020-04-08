@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../shared/rest-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-song-edit',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongEditComponent implements OnInit {
 
-  constructor() { }
+  id = this.actRoute.snapshot.params.id;
+  songData: any = {};
 
-  ngOnInit(): void {
+  constructor(
+    public restApi: RestApiService,
+    public actRoute: ActivatedRoute,
+    public router: Router
+  ) {}
+
+  ngOnInit() {
+    this.restApi.getSong(this.id).subscribe((data: {}) => {
+      this.songData = data;
+    });
   }
 
+  // Update song data
+  updateSong() {
+    if (window.confirm('Are you sure, you want to update?')){
+      this.restApi.updateSong(this.id, this.songData).subscribe(data => {
+        this.router.navigate(['/songs-list']);
+      });
+    }
+  }
 }

@@ -1,1 +1,41 @@
-<p>song-list works!</p>
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no song -->
+    <div class="no-data text-center" *ngIf="Song.length == 0">
+      <p>There is no song added yet!</p>
+      <button class="btn btn-outline-primary" routerLink="/song-create">Add Song</button>
+    </div>
+  
+    <!-- Songs list table, it hides when there is no song -->
+    <div *ngIf="Song.length !== 0">
+      <h3 class="mb-3 text-center">Songs List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Song Id</th>
+              <th scope="col">Title</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Owner</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let song of Song">
+              <td>{{song.id}}</td>
+              <td>{{song.title}}</td>
+              <td>{{song.duration}}</td>
+              <td>{{song.owner}}</td>
+              <td>
+                <span class="edit" routerLink="/song-edit/{{song.id}}">Edit</span>
+                <span class="delete" (click)="deleteSong(song.id)">Delete</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

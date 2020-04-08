@@ -1,1 +1,23 @@
-<p>song-edit works!</p>
+<div class="container custom-container">
+    <div class="col-md-12">
+      
+      <h3 class="mb-3 text-center">Update Song</h3>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="songData.title" class="form-control" placeholder="Title">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="songData.duration" class="form-control" placeholder="Duration">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="songData.owner" class="form-control" placeholder="Owner">
+      </div>
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="updateSong()">Update Song</button>
+      </div>
+      
+    </div>
+  </div>

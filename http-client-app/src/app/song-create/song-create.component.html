@@ -1,1 +1,22 @@
-<p>song-create works!</p>
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Create Song</h3>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="songDetails.title" class="form-control" placeholder="Title">
+      </div>
+  
+      <div class="form-group">
+        <input type="number" [(ngModel)]="songDetails.duration" class="form-control" placeholder="Duration">
+      </div>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="songDetails.owner" class="form-control" placeholder="Owner">
+      </div>
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="addSong()">Create Song</button>
+      </div>
+  
+    </div>
+  </div>
