@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "test-server": "json-server --watch ./json-server-config/db.json --routes ./json-server-config/routes.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
